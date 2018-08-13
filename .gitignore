@@ -1,0 +1,6 @@
+# generic executables
+a.out
+run
+
+# Python binaries
+__pycache__
