@@ -62,14 +62,13 @@ private:
 
 struct Item;
 
-template <typename GT>
-auto makeCache(const GT &gen) {
-    return Cache<std::decay_t<decltype(std::declval<GT>()())>, GT>{gen};
-}
-
-template <typename GT>
-auto makeCache(GT &&gen) {
-    return Cache<std::decay_t<decltype(std::declval<GT>()())>, GT>{std::move(gen)};
+template <typename GT, typename... ItemArgs>
+auto makeCache(GT &&gen, ItemArgs&& ...itemArgs) {
+    return Cache<std::decay_t<decltype(std::declval<GT>()())>,
+                 std::decay_t<GT>>{
+        std::forward<GT>(gen),
+            std::forward<ItemArgs>(itemArgs)...
+            };
 }
 
 
@@ -113,7 +112,7 @@ struct Maker {
         y = other.y;
         cout << "move maker\n";
     }
-    
+
     int y = 1;
 
     Item make(int x) noexcept {
@@ -141,6 +140,6 @@ int main() {
     // Item &it = c;
     // // it.x = 4;
     // cout << c.get() << '\n';
-    
+
     return 0;
 }
