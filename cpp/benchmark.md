@@ -2,12 +2,12 @@ Lib google/benchmark (github)
 
 Tool perf
  - compile with -g -fno-omit-frame-pointer
- - perf record
+ - perf record -g
  - perf report -g 'graph,0.5,caller'
       options mean: use total percentages, filter out stuff below 0.5%,
                     show graph with respect to callers (shows with respect to callees normally)
       or: just use -G
-                                 
+
 Swtich off optimization with
 ```cpp
 static void escape(void *p) {
