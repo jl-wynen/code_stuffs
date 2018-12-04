@@ -1,3 +1,10 @@
+/*
+  This is super dangerous when doing things like
+  _kinvp{std::bind(inverseK, std::ref(*this), Species::PARTICLE)},
+  because if the object behind this gets copied or moved, the copied/moved
+  cache still points at the old object!
+ */
+
 #include <iostream>
 #include <functional>
 
