@@ -1,9 +1,11 @@
 To install enable virtual environments made with pipenv in jupyter, do
 
-1. register venv:
+1. install package ipykernel in venv
+
+2. register venv:
     python -m ipykernel install --user --name=<name-of-venv>
 
-2. edit /home/user/.local/share/jupyter/kernels/<name-of-venv>/kernel.json
+3. edit /home/user/.local/share/jupyter/kernels/<name-of-venv>/kernel.json
     field "argv" must point to the Python binary in the venv
 
 
