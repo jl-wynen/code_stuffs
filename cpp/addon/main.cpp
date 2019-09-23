@@ -48,7 +48,8 @@ inline DL openDL(char const * const fname, int const flags=RTLD_LAZY)
 template <typename F>
 F loadSym(DL const &dl, char const * const name)
 {
-    // not sure if we need to check dlsymErroe, found it on the web...
+    // not sure if we need to check dlsymError, found it on the web...
+    // this cast is platform dependent, on POSIX, this should work (dlsym is POSIX...)
     F fn = reinterpret_cast<F>(dlsym(dl.get(), name));
     char const * const dlsymError = dlerror();
     if (fn == nullptr || dlsymError)
@@ -80,7 +81,7 @@ inline void testfunc()
     DL dl = openDL("/home/jl/Prog/stuff/cpp/addon/addon.so");
 
     auto fn = loadSym<int(*)(int)>(dl, "foo");
-    
+
     try {
         std::cout << fn(3) << '\n';
     }

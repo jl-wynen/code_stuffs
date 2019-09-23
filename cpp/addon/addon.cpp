@@ -4,7 +4,7 @@
 // the addon
 //
 // Using a special method to allocate an instance of Derived to check that
-// the user actiually calls destroy() and not just delete.
+// the user actually calls destroy() and not just delete.
 //
 // WARNING Only one instance of Derived may exist at any given time
 //         (see special make, destroy functions; a hack).
@@ -34,6 +34,8 @@ extern "C" {
     // make clang shut up (inline does not work here!)
     int foo(int x);
     int foo(int x) {
+        // is this really safe?!
+        // seems like the main code treats the function pointer as using C++ calling conventions.
         throw std::exception();
         return x+7;
     }
