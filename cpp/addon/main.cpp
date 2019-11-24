@@ -78,7 +78,7 @@ BasePtr loadObj(DL const &dl, Args && ... args)
 inline void testfunc()
 {
     // need the full path here
-    DL dl = openDL("/home/jl/Prog/stuff/cpp/addon/addon.so");
+    DL dl = openDL("./addon.so");
 
     auto fn = loadSym<int(*)(int)>(dl, "foo");
 
@@ -94,7 +94,7 @@ inline void testfunc()
 
 inline void testclass()
 {
-    DL dl = openDL("/home/jl/Prog/stuff/cpp/addon/addon.so");
+    DL dl = openDL("./addon.so");
 
     auto obj = loadObj(dl, 3, 4);
     std::cout << obj->foo(6) << '\n';
