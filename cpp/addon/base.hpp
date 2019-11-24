@@ -1,13 +1,13 @@
 #pragma once
 
-// base class for main and addon
+// Base class for main and addon.
 
 struct Base
 {
     int x;
 
-    explicit Base(int x_) : x{x_} {}
-    virtual ~Base() noexcept = default;
+    explicit Base(int x_);
+    virtual ~Base() noexcept;
 
     virtual int foo(int y) = 0;
 };
