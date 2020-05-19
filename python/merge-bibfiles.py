@@ -1,6 +1,6 @@
 """
 Merge two BibTeX files.
-Removed duplicates identified by their bib key.
+Removes duplicates identified by their bib key.
 """
 
 import sys
