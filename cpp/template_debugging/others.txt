@@ -1,0 +1,10 @@
+metashell.org + msgui
+
+Archetypes, e.g. Andzej Krzemienski (akryemi1.wordpress.com/2020/09/02/concept-archetypes
+
+Build times:
+gcc, clang: -ftime-report
+
+metabench
+
+format errors: https://github.com/SuperV1234/camomilla
